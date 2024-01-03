@@ -34,6 +34,7 @@ function updateGrid() {
         square.addEventListener('mousemove', () => {
             if (isMouseDown) changeColour(square);
         })
+        square.addEventListener('dragstart', (e) => e.preventDefault())
 
         
         container.appendChild(square);
