@@ -1,15 +1,15 @@
 #gridContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 500px; 
-    height: 500px;
+    width: 800px; 
+    height: 800px;
     border: 1px solid black;
     margin-top: 20px;
 }
 
 .square {
     flex: 1 0 calc(100% / var(--grid-size));
-    height: calc(500px / var(--grid-size)); 
+    height: calc(800px / var(--grid-size)); 
     border: 1px solid grey;
     box-sizing: border-box; 
 }
