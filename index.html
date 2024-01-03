@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Etch-a-Sketch</title>
-        <link rel="stylesheet" href="./style.css">
-        <script src="./script.jss"></script>
-    </head>
-
-    <body>
-
-    </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Grid</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div>
+        <label for="gridSize">Grid Size (x by x):</label>
+        <input type="number" id="gridSize" value="5">
+        <button onclick="updateGrid()">Create Grid</button>
+    </div>
+    <div id="gridContainer"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
