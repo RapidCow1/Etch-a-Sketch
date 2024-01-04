@@ -10,6 +10,7 @@ document.getElementById('gridSize').addEventListener('input', function() {
 });
 
 let isMouseDown = false;
+let random = false;
 
 let currentColour = '#0000ff';
 
@@ -29,7 +30,14 @@ document.querySelector('#eraserBtn').addEventListener('click', function () {
     currentColour = '#ffffff';
 })
 
+document.querySelector('#colourPicker').addEventListener('input', function() {
+    currentColour = this.value;
+});
+
 function changeColour(square) {
+    if (random) {
+        currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    }
     square.style.backgroundColor = currentColour;
 }
 
