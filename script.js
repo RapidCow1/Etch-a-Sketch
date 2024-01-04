@@ -11,9 +11,26 @@ document.getElementById('gridSize').addEventListener('input', function() {
 
 let isMouseDown = false;
 
+let currentColour = '#0000ff';
+
+document.querySelector('#redBtn').addEventListener('click', function () {
+    currentColour = '#ff0000';
+})
+
+document.querySelector('#greenBtn').addEventListener('click', function () {
+    currentColour = '#00ff00';
+})
+
+document.querySelector('#blueBtn').addEventListener('click', function () {
+    currentColour = '#0000ff';
+})
+
+document.querySelector('#eraserBtn').addEventListener('click', function () {
+    currentColour = '#ffffff';
+})
+
 function changeColour(square) {
-    const selectColour = document.querySelector('#colourPicker').value;
-    square.style.backgroundColor = selectColour;
+    square.style.backgroundColor = currentColour;
 }
 
 function clearGrid() {
