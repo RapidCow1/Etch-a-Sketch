@@ -10,7 +10,7 @@ document.getElementById('gridSize').addEventListener('input', function() {
 });
 
 let isMouseDown = false;
-let random = false;
+let random = true;
 
 let currentColour = '#0000ff';
 
