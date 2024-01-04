@@ -12,7 +12,8 @@ document.getElementById('gridSize').addEventListener('input', function() {
 let isMouseDown = false;
 
 function changeColour(square) {
-    square.style.backgroundColor = 'blue';
+    const selectColour = document.querySelector('#colourPicker').value;
+    square.style.backgroundColor = selectColour;
 }
 
 function clearGrid() {
