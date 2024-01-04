@@ -10,7 +10,7 @@ document.getElementById('gridSize').addEventListener('input', function() {
 });
 
 let isMouseDown = false;
-let random = false;
+let isRainbowMose = false;
 
 let currentColour = '#0000ff';
 
@@ -34,10 +34,11 @@ document.querySelector('#colourPicker').addEventListener('input', function() {
     currentColour = this.value;
 });
 
+document.querySelector('#randomColourBtn').addEventListener('click', function() {
+    currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+});
+
 function changeColour(square) {
-    if (random) {
-        currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-    }
     square.style.backgroundColor = currentColour;
 }
 
@@ -62,7 +63,9 @@ function updateGrid() {
             changeColour(square);
         });
         square.addEventListener('mousemove', () => {
-            if (isMouseDown) changeColour(square);
+            if (isMouseDown) {
+                changeColour(square);
+            }
         })
         square.addEventListener('dragstart', (e) => e.preventDefault())
 
