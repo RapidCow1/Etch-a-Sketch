@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('mouseup', () => isMouseDown = false);
 
+document.getElementById('gridSize').addEventListener('input', function() {
+    document.getElementById('gridSizeNumber').textContent = this.value;
+    updateGrid();
+});
 
 let isMouseDown = false;
 
