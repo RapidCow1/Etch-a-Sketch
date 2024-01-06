@@ -10,7 +10,7 @@ document.getElementById('gridSize').addEventListener('input', function() {
 });
 
 let isMouseDown = false;
-let isRainbowMose = false;
+let isRainbowMode = true;
 
 let currentColour = '#0000ff';
 
@@ -39,6 +39,7 @@ document.querySelector('#randomColourBtn').addEventListener('click', function() 
 });
 
 function changeColour(square) {
+    if (isRainbowMode) currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
     square.style.backgroundColor = currentColour;
 }
 
@@ -58,18 +59,34 @@ function updateGrid() {
     for (let i = 0; i < gridSize * gridSize; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
+        square.isColored = false; 
+
         square.addEventListener('mousedown', () => {
             isMouseDown = true;
-            changeColour(square);
-        });
-        square.addEventListener('mousemove', () => {
-            if (isMouseDown) {
+            if (!square.isColored) {
                 changeColour(square);
+                square.isColored = true;
             }
-        })
-        square.addEventListener('dragstart', (e) => e.preventDefault())
+        });
 
-        
+        square.addEventListener('mousemove', () => {
+            if (isMouseDown && !square.isColored) {
+                changeColour(square);
+                square.isColored = true;
+            }
+        });
+
+        square.addEventListener('mouseleave', () => {
+            square.isColored = false; 
+        });
+
+        square.addEventListener('mouseup', () => {
+            square.isColored = false; 
+        });
+
+        square.addEventListener('dragstart', (e) => e.preventDefault());
+
         container.appendChild(square);
     }
 }
+
