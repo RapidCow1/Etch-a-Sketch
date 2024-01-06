@@ -10,24 +10,28 @@ document.getElementById('gridSize').addEventListener('input', function() {
 });
 
 let isMouseDown = false;
-let isRainbowMode = true;
+let isRainbowMode = false;
 
 let currentColour = '#0000ff';
 
 document.querySelector('#redBtn').addEventListener('click', function () {
     currentColour = '#ff0000';
+    isRainbowMode = false;
 })
 
 document.querySelector('#greenBtn').addEventListener('click', function () {
     currentColour = '#00ff00';
+    isRainbowMode = false;
 })
 
 document.querySelector('#blueBtn').addEventListener('click', function () {
     currentColour = '#0000ff';
+    isRainbowMode = false;
 })
 
 document.querySelector('#eraserBtn').addEventListener('click', function () {
     currentColour = '#ffffff';
+    isRainbowMode = false;
 })
 
 document.querySelector('#colourPicker').addEventListener('input', function() {
@@ -35,7 +39,12 @@ document.querySelector('#colourPicker').addEventListener('input', function() {
 });
 
 document.querySelector('#randomColourBtn').addEventListener('click', function() {
-    currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+    // currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+    ranomiseGrid()
+});
+
+document.querySelector('#rainbowModeBtn').addEventListener('click', function() {
+    isRainbowMode = !isRainbowMode;
 });
 
 function changeColour(square) {
@@ -50,6 +59,13 @@ function clearGrid() {
     });
 }
 
+function ranomiseGrid() {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(square => {
+        square.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    });
+}
+
 function updateGrid() {
     const gridSize = parseInt(document.getElementById('gridSize').value) || 10;
     const container = document.getElementById('gridContainer');
@@ -59,25 +75,25 @@ function updateGrid() {
     for (let i = 0; i < gridSize * gridSize; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
-        square.isColored = false; 
+        square.isColoured = false; 
 
         square.addEventListener('mousedown', () => {
             isMouseDown = true;
-            if (!square.isColored) {
+            if (!square.isColoured) {
                 changeColour(square);
                 square.isColored = true;
             }
         });
 
         square.addEventListener('mousemove', () => {
-            if (isMouseDown && !square.isColored) {
+            if (isMouseDown && !square.isColoured) {
                 changeColour(square);
-                square.isColored = true;
+                square.isColoured = true;
             }
         });
 
         square.addEventListener('mouseleave', () => {
-            square.isColored = false; 
+            square.isColoured = false; 
         });
 
         square.addEventListener('mouseup', () => {
