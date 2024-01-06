@@ -47,8 +47,12 @@ document.querySelector('#rainbowModeBtn').addEventListener('click', function() {
     isRainbowMode = !isRainbowMode;
 });
 
+function randomHexGen() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+}
+
 function changeColour(square) {
-    if (isRainbowMode) currentColour = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+    if (isRainbowMode) currentColour = randomHexGen();
     square.style.backgroundColor = currentColour;
 }
 
@@ -62,7 +66,7 @@ function clearGrid() {
 function ranomiseGrid() {
     const squares = document.querySelectorAll('.square');
     squares.forEach(square => {
-        square.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+        square.style.backgroundColor = randomHexGen();
     });
 }
 
