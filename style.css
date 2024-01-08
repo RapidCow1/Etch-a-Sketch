@@ -1,5 +1,6 @@
 body {
-    background-color: rgba(240, 19, 236, 0.22);
+    /* background-color: rgba(240, 19, 236, 0.22); */
+    background: linear-gradient(to right, #FEDEFF, #AEE2FF);
 }
 
 .options {
@@ -16,7 +17,6 @@ body {
     flex-wrap: wrap;
     width: 800px; 
     height: 800px;
-    border: 1px solid black;
     margin-top: 20px;
     background-color: white;
 }
@@ -24,7 +24,6 @@ body {
 .square {
     flex: 1 0 calc(100% / var(--grid-size));
     height: calc(800px / var(--grid-size)); 
-    border: 1px solid grey;
     box-sizing: border-box; 
 }
 
@@ -40,4 +39,22 @@ body {
 
 button {
     height: 50px;
+    font-weight: bold;
+}
+
+#gridSizeNumber,
+#colourPicker {
+    align-self: center;
+}
+
+#redBtn {
+    background-color: rgba(255, 0, 0, 0.54);
+}
+
+#greenBtn {
+    background-color: rgba(2, 255, 2, 0.54);
+}
+
+#blueBtn {
+    background-color: rgba(0, 255, 255, 0.54);
 }
