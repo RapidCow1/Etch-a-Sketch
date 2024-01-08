@@ -1,7 +1,5 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(240, 19, 236, 0.22);
 }
 
 .options {
@@ -9,6 +7,8 @@ body {
     flex-direction: column;
     gap: 20px;
     margin-right: 100px;
+    background-color: white;
+    padding: 40px;
 }
 
 #gridContainer {
@@ -18,6 +18,7 @@ body {
     height: 800px;
     border: 1px solid black;
     margin-top: 20px;
+    background-color: white;
 }
 
 .square {
@@ -25,4 +26,18 @@ body {
     height: calc(800px / var(--grid-size)); 
     border: 1px solid grey;
     box-sizing: border-box; 
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    text-align: center;
+}
+
+button {
+    height: 50px;
 }
